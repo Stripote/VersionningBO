@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+    {#<link rel="stylesheet" href="{{ asset('css/app.css') }}">#}
+    <title>{% block title %}Movies DTB{% endblock %}</title>
+
+    {% block js %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="back-color">
+            <header>
+                {#<a class="main-logo" href="{{ path('nantes_homepage') }}" title="Accueil du site">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo">
+                    Nantes Nocturne
+                </a>
+
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li><a href="#">lorem</a></li>
+                        <li><a href="{{ path('event_list') }}">Les événements</a></li>
+                        <li><a href="{{ path('event_create') }}">Ajouter un événement</a></li>
+                        <li><a href="{{ path('user_create') }}">Inscription</a></li>
+                        {% if app.user %}
+                            <li><a href="{{ path('user_events', { "id" : app.user.id}) }}">Mes évènements</a></li>
+                            <li><a href="{{ path('user_myaccount') }}">Mon compte</a></li>
+                            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+                        {% else %}
+                            <li><a href="{{ path('login') }}">Connexion</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% if app.user %}
+                <div>
+                        Bonjour {{ app.user.username }}
+                </div>
+                {% endif %}
+                #}
+            </header>
+            {# flash message #}
+            {% for label, messages in app.flashes %}
+                <div class="label label-{{ label }}">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            {% block content %}{% endblock %}
+
+            <footer>
+                {#
+                <nav>
+                    <ul>
+                        <li><a href="{{ path('nantes_homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('faq') }}">FAQ</a></li>
+                        <li><a href="{{ path('about') }}">À propos</a></li>
+                        <li><a href="{{ path('cgu') }}">CGU</a></li>
+                        <li><a href="{{ path('event_list') }}">Les événements</a></li>
+                        <li><a href="{{ path('event_create') }}">Ajouter un événement</a></li>
+                    </ul>
+                </nav>
+                #}
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

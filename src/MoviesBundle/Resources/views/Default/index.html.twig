@@ -1,0 +1,14 @@
+{% extends 'MoviesBundle::base.html.twig' %}
+
+{% block content %}
+    <h1>Bienvenue sur Movies DTB !</h1>
+
+
+{% endblock %}
+
+{# commentaire twig #}
+{% block title %}{{ parent() }} | Home{% endblock %}
+
+{% block js %}
+    {#<script src="{{ asset('js/app.js') }}"></script>#}
+{% endblock %}
